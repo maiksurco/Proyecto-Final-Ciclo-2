@@ -21,8 +21,8 @@ public class TheButton1 extends JButton implements MouseListener, MouseMotionLis
      * Color para el fondo del boton
      */
     private Color colorNormal = new Color(0,204,51);
-    private Color colorPressed = new Color(0,204,51);   
-    private Color colorHover = new Color(0,204,51); 
+    private Color colorPressed = new Color(60,63,65);   
+    private Color colorHover = new Color(60,63,65); 
     
     private Border bordeMoved = javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 0, new java.awt.Color(255, 255, 255));
     /**

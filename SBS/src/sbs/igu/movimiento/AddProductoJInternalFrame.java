@@ -30,9 +30,8 @@ public class AddProductoJInternalFrame extends javax.swing.JInternalFrame {
 
         setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         setIconifiable(true);
-        setMaximizable(true);
 
-        AddProdtPanel.setBackground(new java.awt.Color(0, 139, 139));
+        AddProdtPanel.setBackground(new java.awt.Color(0, 204, 51));
         AddProdtPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(204, 0, 255), null, null));
 
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));

@@ -2,12 +2,16 @@ package sbs.igu;
 
 import java.awt.Dimension;
 import javax.swing.JInternalFrame;
-import sbs.igu.consultas.ListaClientePanel;
-import sbs.igu.consultas.ListaProductoPanel;
-import sbs.igu.consultas.ListaVentaPanel;
-import sbs.igu.consultas.ListaSocioPanel;
+import sbs.igu.consultas.clientes.ListaClientePanel;
+import sbs.igu.consultas.clientes.ReporteClientePanel;
+import sbs.igu.consultas.productos.ListaProductoPanel;
+import sbs.igu.consultas.productos.ReporteProductoPanel;
+import sbs.igu.consultas.ventas.ListaVentaPanel;
+import sbs.igu.consultas.proveedores.ListaProveedoresPanel;
+import sbs.igu.consultas.proveedores.ReporteProveedorPanel;
+import sbs.igu.consultas.ventas.ReporteVentaPanel;
 import sbs.igu.movimiento.AddProductoJInternalFrame;
-import sbs.igu.socios.AddSociosJInternalFrame;
+import sbs.igu.proveedor.AddProveedorJInternalFrame;
 import sbs.igu.movimiento.NuevaVentaJInternalFrame;
 
 public class MainFrame extends javax.swing.JFrame {
@@ -24,6 +28,8 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         DesktopPaneEscritorio = new javax.swing.JDesktopPane();
         EscritorioPanel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         CerrarSesionMenuItem = new javax.swing.JMenuItem();
@@ -35,15 +41,19 @@ public class MainFrame extends javax.swing.JFrame {
         AddSocioMenuItem = new javax.swing.JMenuItem();
         DeleteSocioMenuItem = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
         CClientesMenuItem = new javax.swing.JMenuItem();
-        CProductosMenuItem = new javax.swing.JMenuItem();
-        CVentasMenuItem = new javax.swing.JMenuItem();
-        CSociosMenuItem = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
         RClientesMenuItem = new javax.swing.JMenuItem();
-        RSociosMenuItem = new javax.swing.JMenuItem();
-        RProductosMenuItem = new javax.swing.JMenuItem();
+        jMenu8 = new javax.swing.JMenu();
+        CVentasMenuItem = new javax.swing.JMenuItem();
         RVentasMenuItem = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu9 = new javax.swing.JMenu();
+        CProductosMenuItem = new javax.swing.JMenuItem();
+        RProductosMenuItem = new javax.swing.JMenuItem();
+        jMenu10 = new javax.swing.JMenu();
+        CProveedorMenuItem = new javax.swing.JMenuItem();
+        RProveedorMenuItem = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         AdminUserMenuItem = new javax.swing.JMenuItem();
         DeleteUserMenuItem = new javax.swing.JMenuItem();
@@ -57,17 +67,40 @@ public class MainFrame extends javax.swing.JFrame {
 
         EscritorioPanel.setLayout(new javax.swing.BoxLayout(EscritorioPanel, javax.swing.BoxLayout.LINE_AXIS));
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
+        jLabel1.setText("BIENVENIDOS");
+        jLabel1.setToolTipText("");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addComponent(jLabel1)
+                .addContainerGap(129, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(136, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(122, 122, 122))
+        );
+
+        EscritorioPanel.add(jPanel1);
+
         DesktopPaneEscritorio.setLayer(EscritorioPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout DesktopPaneEscritorioLayout = new javax.swing.GroupLayout(DesktopPaneEscritorio);
         DesktopPaneEscritorio.setLayout(DesktopPaneEscritorioLayout);
         DesktopPaneEscritorioLayout.setHorizontalGroup(
             DesktopPaneEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(EscritorioPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
+            .addComponent(EscritorioPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         DesktopPaneEscritorioLayout.setVerticalGroup(
             DesktopPaneEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(EscritorioPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+            .addComponent(EscritorioPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
@@ -117,10 +150,10 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Socios");
+        jMenu3.setText("Proveedores");
 
         AddSocioMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        AddSocioMenuItem.setText("Agregar Nuevo Socio");
+        AddSocioMenuItem.setText("Agregar Nuevo Proveedor");
         AddSocioMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddSocioMenuItemActionPerformed(evt);
@@ -129,12 +162,19 @@ public class MainFrame extends javax.swing.JFrame {
         jMenu3.add(AddSocioMenuItem);
 
         DeleteSocioMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        DeleteSocioMenuItem.setText("Eliminar Socio");
+        DeleteSocioMenuItem.setText("Eliminar Proveedor");
+        DeleteSocioMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteSocioMenuItemActionPerformed(evt);
+            }
+        });
         jMenu3.add(DeleteSocioMenuItem);
 
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Consultas");
+
+        jMenu7.setText("Clientes");
 
         CClientesMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         CClientesMenuItem.setText("Lista de Clientes");
@@ -143,16 +183,19 @@ public class MainFrame extends javax.swing.JFrame {
                 CClientesMenuItemActionPerformed(evt);
             }
         });
-        jMenu4.add(CClientesMenuItem);
+        jMenu7.add(CClientesMenuItem);
 
-        CProductosMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        CProductosMenuItem.setText("Lista de Productos");
-        CProductosMenuItem.addActionListener(new java.awt.event.ActionListener() {
+        RClientesMenuItem.setText("Reporte de Cientes");
+        RClientesMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CProductosMenuItemActionPerformed(evt);
+                RClientesMenuItemActionPerformed(evt);
             }
         });
-        jMenu4.add(CProductosMenuItem);
+        jMenu7.add(RClientesMenuItem);
+
+        jMenu4.add(jMenu7);
+
+        jMenu8.setText("Ventas");
 
         CVentasMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         CVentasMenuItem.setText("Lista de ventas");
@@ -161,43 +204,73 @@ public class MainFrame extends javax.swing.JFrame {
                 CVentasMenuItemActionPerformed(evt);
             }
         });
-        jMenu4.add(CVentasMenuItem);
-
-        CSociosMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        CSociosMenuItem.setText("Lista de Socios");
-        CSociosMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CSociosMenuItemActionPerformed(evt);
-            }
-        });
-        jMenu4.add(CSociosMenuItem);
-
-        jMenuBar1.add(jMenu4);
-
-        jMenu5.setText("Reportes");
-
-        RClientesMenuItem.setText("Reporte de Cientes");
-        jMenu5.add(RClientesMenuItem);
-
-        RSociosMenuItem.setText("Reporte de Socios");
-        RSociosMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RSociosMenuItemActionPerformed(evt);
-            }
-        });
-        jMenu5.add(RSociosMenuItem);
-
-        RProductosMenuItem.setText("Reporte de Productos");
-        jMenu5.add(RProductosMenuItem);
+        jMenu8.add(CVentasMenuItem);
 
         RVentasMenuItem.setText("Reporte de Ventas");
-        jMenu5.add(RVentasMenuItem);
+        RVentasMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RVentasMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu8.add(RVentasMenuItem);
 
-        jMenuBar1.add(jMenu5);
+        jMenuItem1.setText("Detalle de Ventas");
+        jMenu8.add(jMenuItem1);
+
+        jMenu4.add(jMenu8);
+
+        jMenu9.setText("Productos");
+
+        CProductosMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        CProductosMenuItem.setText("Lista de Productos");
+        CProductosMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CProductosMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu9.add(CProductosMenuItem);
+
+        RProductosMenuItem.setText("Reporte de Productos");
+        RProductosMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RProductosMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu9.add(RProductosMenuItem);
+
+        jMenu4.add(jMenu9);
+
+        jMenu10.setText("Proveedores");
+
+        CProveedorMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        CProveedorMenuItem.setText("Lista de Proveedor");
+        CProveedorMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CProveedorMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu10.add(CProveedorMenuItem);
+
+        RProveedorMenuItem.setText("Reporte de Proveedor");
+        RProveedorMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RProveedorMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu10.add(RProveedorMenuItem);
+
+        jMenu4.add(jMenu10);
+
+        jMenuBar1.add(jMenu4);
 
         jMenu6.setText("Administración");
 
         AdminUserMenuItem.setText("Administración de Usuario");
+        AdminUserMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminUserMenuItemActionPerformed(evt);
+            }
+        });
         jMenu6.add(AdminUserMenuItem);
 
         DeleteUserMenuItem.setText("Eliminar Usuario");
@@ -227,16 +300,16 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_CerrarSesionMenuItemActionPerformed
 
     private void SalirMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirMenuItemActionPerformed
-        // TODO add your handling code here:
+       System.exit(0);
     }//GEN-LAST:event_SalirMenuItemActionPerformed
 
-    private void CSociosMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CSociosMenuItemActionPerformed
-        new ChangePanel1(EscritorioPanel, new ListaSocioPanel());
-    }//GEN-LAST:event_CSociosMenuItemActionPerformed
+    private void CProveedorMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CProveedorMenuItemActionPerformed
+    new ChangePanel1(EscritorioPanel, new ListaProveedoresPanel());        
+    }//GEN-LAST:event_CProveedorMenuItemActionPerformed
 
-    private void RSociosMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RSociosMenuItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RSociosMenuItemActionPerformed
+    private void RProveedorMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RProveedorMenuItemActionPerformed
+       new ChangePanel1(EscritorioPanel, new ReporteProveedorPanel());   
+    }//GEN-LAST:event_RProveedorMenuItemActionPerformed
 
     private void AddProductoMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddProductoMenuItemActionPerformed
         AddProductoJInternalFrame AddProd = new  AddProductoJInternalFrame();
@@ -258,7 +331,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_CVentasMenuItemActionPerformed
 
     private void AddSocioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddSocioMenuItemActionPerformed
-         AddSociosJInternalFrame AddSocio = new  AddSociosJInternalFrame();
+         AddProveedorJInternalFrame AddSocio = new  AddProveedorJInternalFrame();
         DesktopPaneEscritorio.add(AddSocio);
         AddSocio.show();
         
@@ -269,6 +342,26 @@ public class MainFrame extends javax.swing.JFrame {
         DesktopPaneEscritorio.add(AddVent);
         AddVent.show();
     }//GEN-LAST:event_AddVentaMenuItemActionPerformed
+
+    private void AdminUserMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminUserMenuItemActionPerformed
+       
+    }//GEN-LAST:event_AdminUserMenuItemActionPerformed
+
+    private void DeleteSocioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteSocioMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeleteSocioMenuItemActionPerformed
+
+    private void RClientesMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RClientesMenuItemActionPerformed
+       new ChangePanel1(EscritorioPanel, new ReporteClientePanel());
+    }//GEN-LAST:event_RClientesMenuItemActionPerformed
+
+    private void RVentasMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RVentasMenuItemActionPerformed
+        new ChangePanel1(EscritorioPanel, new ReporteVentaPanel());
+    }//GEN-LAST:event_RVentasMenuItemActionPerformed
+
+    private void RProductosMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RProductosMenuItemActionPerformed
+        new ChangePanel1(EscritorioPanel, new ReporteProductoPanel());
+    }//GEN-LAST:event_RProductosMenuItemActionPerformed
 
      void CentrarVentana(JInternalFrame frame){
         EscritorioPanel.add(frame);
@@ -316,7 +409,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem AdminUserMenuItem;
     private javax.swing.JMenuItem CClientesMenuItem;
     private javax.swing.JMenuItem CProductosMenuItem;
-    private javax.swing.JMenuItem CSociosMenuItem;
+    private javax.swing.JMenuItem CProveedorMenuItem;
     private javax.swing.JMenuItem CVentasMenuItem;
     private javax.swing.JMenuItem CerrarSesionMenuItem;
     private javax.swing.JMenuItem DeleteSocioMenuItem;
@@ -325,17 +418,23 @@ public class MainFrame extends javax.swing.JFrame {
     public static javax.swing.JPanel EscritorioPanel;
     private javax.swing.JMenuItem RClientesMenuItem;
     private javax.swing.JMenuItem RProductosMenuItem;
-    private javax.swing.JMenuItem RSociosMenuItem;
+    private javax.swing.JMenuItem RProveedorMenuItem;
     private javax.swing.JMenuItem RVentasMenuItem;
     private javax.swing.JMenuItem SalirMenuItem;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -77,7 +77,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Socios"/>
+            <Property name="text" type="java.lang.String" value="Proveedores"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="AddSocioMenuItem">
@@ -85,7 +85,7 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+N"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Agregar Nuevo Socio"/>
+                <Property name="text" type="java.lang.String" value="Agregar Nuevo Proveedor"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddSocioMenuItemActionPerformed"/>
@@ -96,8 +96,11 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+E"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Eliminar Socio"/>
+                <Property name="text" type="java.lang.String" value="Eliminar Proveedor"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeleteSocioMenuItemActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -106,80 +109,115 @@
             <Property name="text" type="java.lang.String" value="Consultas"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="CClientesMenuItem">
+            <Menu class="javax.swing.JMenu" name="jMenu7">
               <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+C"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Lista de Clientes"/>
+                <Property name="text" type="java.lang.String" value="Clientes"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CClientesMenuItemActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="CProductosMenuItem">
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="CClientesMenuItem">
+                  <Properties>
+                    <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                      <KeyStroke key="Ctrl+C"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Lista de Clientes"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CClientesMenuItemActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="RClientesMenuItem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Reporte de Cientes"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RClientesMenuItemActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="jMenu8">
               <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+P"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Lista de Productos"/>
+                <Property name="text" type="java.lang.String" value="Ventas"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CProductosMenuItemActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="CVentasMenuItem">
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="CVentasMenuItem">
+                  <Properties>
+                    <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                      <KeyStroke key="Ctrl+V"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Lista de ventas"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CVentasMenuItemActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="RVentasMenuItem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Reporte de Ventas"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RVentasMenuItemActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Detalle de Ventas"/>
+                  </Properties>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="jMenu9">
               <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+V"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Lista de ventas"/>
+                <Property name="text" type="java.lang.String" value="Productos"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CVentasMenuItemActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="CSociosMenuItem">
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="CProductosMenuItem">
+                  <Properties>
+                    <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                      <KeyStroke key="Ctrl+P"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Lista de Productos"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CProductosMenuItemActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="RProductosMenuItem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Reporte de Productos"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RProductosMenuItemActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="jMenu10">
               <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+S"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Lista de Socios"/>
+                <Property name="text" type="java.lang.String" value="Proveedores"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CSociosMenuItemActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Reportes"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="RClientesMenuItem">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Reporte de Cientes"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="RSociosMenuItem">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Reporte de Socios"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RSociosMenuItemActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="RProductosMenuItem">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Reporte de Productos"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="RVentasMenuItem">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Reporte de Ventas"/>
-              </Properties>
-            </MenuItem>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="CProveedorMenuItem">
+                  <Properties>
+                    <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                      <KeyStroke key="Ctrl+S"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Lista de Proveedor"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CProveedorMenuItemActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="RProveedorMenuItem">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Reporte de Proveedor"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RProveedorMenuItemActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu6">
@@ -191,6 +229,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Administraci&#xf3;n de Usuario"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AdminUserMenuItemActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="DeleteUserMenuItem">
               <Properties>
@@ -248,12 +289,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="EscritorioPanel" alignment="0" pref="596" max="32767" attributes="0"/>
+              <Component id="EscritorioPanel" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="EscritorioPanel" alignment="0" pref="326" max="32767" attributes="0"/>
+              <Component id="EscritorioPanel" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -264,6 +305,42 @@
           </AuxValues>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="jPanel1">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="129" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="136" max="32767" attributes="0"/>
+                          <Component id="jLabel1" min="-2" pref="70" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="jLabel1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Times New Roman" size="48" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="BIENVENIDOS"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
         </Container>
       </SubComponents>
     </Container>
