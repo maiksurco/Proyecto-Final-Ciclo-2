@@ -1,7 +1,14 @@
 package sbs.igu;
 
-import sbs.igu.producto.ListaProductoPanel;
-import sbs.igu.producto.AddProductoJInternalFrame;
+import java.awt.Dimension;
+import javax.swing.JInternalFrame;
+import sbs.igu.consultas.ListaClientePanel;
+import sbs.igu.consultas.ListaProductoPanel;
+import sbs.igu.consultas.ListaVentaPanel;
+import sbs.igu.consultas.ListaSocioPanel;
+import sbs.igu.movimiento.AddProductoJInternalFrame;
+import sbs.igu.socios.AddSociosJInternalFrame;
+import sbs.igu.movimiento.NuevaVentaJInternalFrame;
 
 public class MainFrame extends javax.swing.JFrame {
 
@@ -92,9 +99,14 @@ public class MainFrame extends javax.swing.JFrame {
 
         AddVentaMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
         AddVentaMenuItem.setText("Agregar Nueva Venta");
+        AddVentaMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddVentaMenuItemActionPerformed(evt);
+            }
+        });
         jMenu2.add(AddVentaMenuItem);
 
-        AddProductoMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        AddProductoMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
         AddProductoMenuItem.setText("Agregar Producto");
         AddProductoMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +121,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         AddSocioMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         AddSocioMenuItem.setText("Agregar Nuevo Socio");
+        AddSocioMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddSocioMenuItemActionPerformed(evt);
+            }
+        });
         jMenu3.add(AddSocioMenuItem);
 
         DeleteSocioMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -139,6 +156,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         CVentasMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         CVentasMenuItem.setText("Lista de ventas");
+        CVentasMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CVentasMenuItemActionPerformed(evt);
+            }
+        });
         jMenu4.add(CVentasMenuItem);
 
         CSociosMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -209,7 +231,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_SalirMenuItemActionPerformed
 
     private void CSociosMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CSociosMenuItemActionPerformed
-        // TODO add your handling code here:
+        new ChangePanel1(EscritorioPanel, new ListaSocioPanel());
     }//GEN-LAST:event_CSociosMenuItemActionPerformed
 
     private void RSociosMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RSociosMenuItemActionPerformed
@@ -228,12 +250,33 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_CProductosMenuItemActionPerformed
 
     private void CClientesMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CClientesMenuItemActionPerformed
-        // TODO add your handling code here:
+        new ChangePanel1(EscritorioPanel, new ListaClientePanel());
     }//GEN-LAST:event_CClientesMenuItemActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void CVentasMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CVentasMenuItemActionPerformed
+        new ChangePanel1(EscritorioPanel, new ListaVentaPanel());
+    }//GEN-LAST:event_CVentasMenuItemActionPerformed
+
+    private void AddSocioMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddSocioMenuItemActionPerformed
+         AddSociosJInternalFrame AddSocio = new  AddSociosJInternalFrame();
+        DesktopPaneEscritorio.add(AddSocio);
+        AddSocio.show();
+        
+    }//GEN-LAST:event_AddSocioMenuItemActionPerformed
+
+    private void AddVentaMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddVentaMenuItemActionPerformed
+      NuevaVentaJInternalFrame  AddVent= new  NuevaVentaJInternalFrame();
+        DesktopPaneEscritorio.add(AddVent);
+        AddVent.show();
+    }//GEN-LAST:event_AddVentaMenuItemActionPerformed
+
+     void CentrarVentana(JInternalFrame frame){
+        EscritorioPanel.add(frame);
+        Dimension dimension=EscritorioPanel.getSize();
+        Dimension Dframe=frame.getSize();
+        frame.setLocation((dimension.width -Dframe.height)/2,(dimension.height -Dframe.width)/2);
+        frame.show();
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

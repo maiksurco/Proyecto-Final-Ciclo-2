@@ -21,7 +21,7 @@ public class Conn1 {
         Connection conn = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            String dbURL = "jdbc:sqlite:sbs_db.db?foreign_keys=on;";
+            String dbURL = "jdbc:sqlite:smallbusinesssoftware_db.db?foreign_keys=on;";
             
             conn = DriverManager.getConnection(dbURL);
             
